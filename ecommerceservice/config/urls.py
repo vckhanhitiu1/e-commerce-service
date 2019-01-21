@@ -15,13 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.urls import path
-from rest_framework import routers
+from rest_card import views
 
-import sys
+# import sys, os
+# sys.path.append(os.path.abspath(os.path.join('..', 'gateway')))
 
-
+# from gateway.views import RegistrationAPI, LoginAPI
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url('admin/', admin.site.urls),
+    url(r'^rest_card-auth/', include('rest_auth.urls')),
+    url(r'^rest_card-auth/registration/', include('rest_auth.registration.urls')),
+    url(r'^products/',views.product_get_all),
+    url(r'^product',views.create_new_product)
+
 ]

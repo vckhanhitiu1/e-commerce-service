@@ -3,10 +3,6 @@ class Product(models.Model):
     title = models.CharField(max_length=120)
     price = models.IntegerField()
     description = models.TextField()
-    availableSizes =(
-        ('X','x'),
-        ('L','l')
-    ),
 
 class Ingredient(models.Model):
     vitamin_type = models.TextField()
