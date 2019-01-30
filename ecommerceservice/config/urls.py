@@ -26,7 +26,10 @@ urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'^rest_card-auth/', include('rest_auth.urls')),
     url(r'^rest_card-auth/registration/', include('rest_auth.registration.urls')),
-    url(r'^products/',views.product_get_all),
-    url(r'^product',views.create_new_product)
+    url(r'^products',views.product_get_all),
+    url(r'^product/',views.create_new_product),
+    url(r'^products/(<title>)/$', views.product_get_all),
+    url(r'^products/(<id>)/$', views.product_get_all),
+    url(r'^products/(<price>)/$', views.product_get_all),
 
 ]
